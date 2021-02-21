@@ -1,20 +1,15 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-      <!--  -->
-    </v-navigation-drawer>
-
+    <NavBar app/>
     <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="SET_DRAWER"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Learn Japan</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
       <!--  -->
+      <h3></h3>
     </v-main>
 
     <!-- Icons/Fonts Vuetify -->
@@ -24,7 +19,20 @@
 </template>
 
 <script>
-  export default {
-    data: () => ({ drawer: null }),
+import NavBar from '@/components/core/NavBar.vue'
+import { mapMutations } from 'vuex'
+
+export default {
+  data: () => ({ }),
+
+  methods: {
+    ...mapMutations(['SET_DRAWER'])
+  },
+
+  computed: {},
+
+  components: {
+    NavBar
   }
+}
 </script>
