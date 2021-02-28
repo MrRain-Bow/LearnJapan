@@ -1,15 +1,16 @@
 <template>
   <v-app id="inspire">
-    <NavBar app/>
-    <v-app-bar app>
+    <v-app-bar app color="primary" dark>
       <v-app-bar-nav-icon @click="SET_DRAWER"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Learn Japan</v-toolbar-title>
     </v-app-bar>
 
+    <NavBar app/>
+
     <v-main>
       <!--  -->
-      <h3></h3>
+      <router-view class="view"></router-view>
     </v-main>
 
     <!-- Icons/Fonts Vuetify -->
@@ -23,13 +24,14 @@ import NavBar from '@/components/core/NavBar.vue'
 import { mapMutations } from 'vuex'
 
 export default {
-  data: () => ({ }),
+  data: function() {
+    return {
+    }
+  },
 
   methods: {
     ...mapMutations(['SET_DRAWER'])
   },
-
-  computed: {},
 
   components: {
     NavBar

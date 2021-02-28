@@ -3,16 +3,6 @@
         :value="drawer"
         app
     >
-        <v-list-item>
-            <v-list-item-content>
-            <v-list-item-title class="title">
-                Learn Japan
-            </v-list-item-title>
-            </v-list-item-content>
-        </v-list-item>
-
-        <v-divider></v-divider>
-
         <v-list
             dense
             nav
@@ -21,6 +11,7 @@
                 v-for="item in items"
                 :key="item.title"
                 link
+                :to="item.route"
             >
             <v-list-item-icon>
                 <v-icon>{{ item.icon }}</v-icon>
@@ -48,7 +39,7 @@ export default {
                 { title: 'Accueil', icon: 'mdi-home', route: '/' },
                 { title: 'Leçons', icon: 'mdi-book-variant ', route: '/classmate' },
                 { title: 'Tests', icon: 'mdi-fountain-pen-tip ', route: '/testsopts' },
-                { title: 'Tableaux Hiragana/Katakana', icon: 'mdi-table', route: '/tables' },
+                { title: 'Tableaux Kana', icon: 'mdi-table', route: '/kana' },
             ],
             right: null,
         }

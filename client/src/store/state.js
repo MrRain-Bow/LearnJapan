@@ -1,3 +1,5 @@
 export default {
-    drawer: true
+    drawer: true,
+    windowHeight: 0,
+    windowWidth: 0
 }
