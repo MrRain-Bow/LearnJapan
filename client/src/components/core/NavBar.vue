@@ -1,7 +1,9 @@
 <template>
-    <v-navigation-drawer         
-        :value="drawer"
+    <v-navigation-drawer
+        :value="drawer.model"
+        :clipped="drawer.clipped"
         app
+        overflow
     >
         <v-list
             dense
@@ -26,27 +28,22 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
-    props: {
-        app: String
-    },
+  props: {
+    app: String,
+    drawer: Object
+  },
 
-    data () {
-        return {
-            items: [
-                { title: 'Accueil', icon: 'mdi-home', route: '/' },
-                { title: 'Leçons', icon: 'mdi-book-variant ', route: '/classmate' },
-                { title: 'Tests', icon: 'mdi-fountain-pen-tip ', route: '/testsopts' },
-                { title: 'Tableaux Kana', icon: 'mdi-table', route: '/kana' },
-            ],
-            right: null,
-        }
-    },
-
-    computed: {
-        ...mapState(['drawer'])
+  data () {
+    return {
+      items: [
+        { title: 'Accueil', icon: 'mdi-home', route: '/' },
+        { title: 'Leçons', icon: 'mdi-book-variant ', route: '/classmate' },
+        { title: 'Tests', icon: 'mdi-fountain-pen-tip ', route: '/testsopts' },
+        { title: 'Tableaux', icon: 'mdi-table', route: '/kana' }
+      ],
+      right: null
     }
+  }
 }
 </script>

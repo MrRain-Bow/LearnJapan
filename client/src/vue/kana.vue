@@ -34,27 +34,27 @@ import katakana from '@/components/tableaux/katakana.vue'
 import youon from '@/components/tableaux/youon.vue'
 
 export default {
-    data: function () {
-        return {
-            tab: null,
-            items: [
-                { title: 'Hiragana', component: hiragana},
-                { title: 'Katakana', component: katakana},
-                { title: 'Youon', component: youon}
-            ]
-        }
-    },
-
-    methode: {},
-
-    computed: {
-        ...mapState(['windowHeight', 'windowWidth'])
-    },
-
-    component: {
-        hiragana,
-        katakana,
-        youon
+  data: function () {
+    return {
+      tab: null,
+      items: [
+        { title: 'Hiragana', component: hiragana },
+        { title: 'Katakana', component: katakana },
+        { title: 'Youon', component: youon }
+      ]
     }
+  },
+
+  methode: {},
+
+  computed: {
+    ...mapState(['windowHeight', 'windowWidth'])
+  },
+
+  component: {
+    hiragana,
+    katakana,
+    youon
+  }
 }
 </script>

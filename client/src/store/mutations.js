@@ -1,5 +1,5 @@
 export default {
-    SET_DRAWER (state) {
-        state.drawer = !state.drawer
-    }
+  SET_DRAWER (state) {
+    state.drawer = !state.drawer
+  }
 }

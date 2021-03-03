@@ -8,10 +8,9 @@ import store from './store'
 import vuetify from '@/plugins/vuetify'
 
 new Vue({
-  el: '#app',
+  iconfont: 'mdi',
   store,
   router,
   vuetify,
-  render: h=> h(App)
-})
-
+  render: h => h(App)
+}).$mount('#app')

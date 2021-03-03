@@ -1,12 +1,18 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar app color="primary" dark>
-      <v-app-bar-nav-icon @click="SET_DRAWER"></v-app-bar-nav-icon>
+    <v-app-bar
+      app
+      color="primary"
+      :clipped-left="drawer.clipped"
+      dark
+      dense
+    >
+      <v-app-bar-nav-icon @click="drawer.model = !drawer.model" ></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Learn Japan</v-toolbar-title>
+      <v-toolbar-title>Titre</v-toolbar-title>
     </v-app-bar>
 
-    <NavBar app/>
+    <NavBar :app="app" :drawer="drawer"/>
 
     <v-main>
       <!--  -->
@@ -24,8 +30,12 @@ import NavBar from '@/components/core/NavBar.vue'
 import { mapMutations } from 'vuex'
 
 export default {
-  data: function() {
+  data: function () {
     return {
+      drawer: {
+        model: true,
+        clipped: true
+      }
     }
   },
 
