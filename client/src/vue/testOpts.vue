@@ -10,8 +10,15 @@
 import router from 'vue-router'
 
 export default {
-  methods () {
-    startTest() {
+
+  data: function () {
+    return {
+      
+    }
+  },
+
+  methods: {
+    startTest () {
       let startDate = new Date(Date.now())
       let test = [
         { id: 1, question: "AA", response: "aa", userInput: "", time: null },

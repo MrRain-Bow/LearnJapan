@@ -6,6 +6,8 @@ import Accueil from '@/vue/Accueil.vue'
 import TestsOptions from '@/vue/testOpts.vue'
 import kana from '@/vue/kana.vue'
 
+import Test from '@/vue/test.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -18,6 +20,11 @@ const routes = [
     path: '/testsopts',
     name: 'Options Tests',
     component: TestsOptions
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: Test
   },
   {
     path: '/kana',
