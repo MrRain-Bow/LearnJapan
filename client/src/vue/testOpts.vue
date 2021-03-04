@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 <template>
     <v-container fluid>
         <h1>Test Options</h1>
@@ -7,27 +8,23 @@
 </template>
 
 <script>
-import router from 'vue-router'
-
 export default {
 
   data: function () {
-    return {
-      
-    }
+    return {}
   },
 
   methods: {
     startTest () {
       let startDate = new Date(Date.now())
-      let test = [
-        { id: 1, question: "AA", response: "aa", userInput: "", time: null },
-        { id: 2, question: "AAB", response: "ab", userInput: "", time: null },
-        { id: 3, question: "AAC", response: "ac", userInput: "", time: null },
-        { id: 4, question: "AAD", response: "ad", userInput: "", time: null }
+      let testObject = [
+        { id: 1, question: 'AA', response: 'aa', userInput: '', time: null },
+        { id: 2, question: 'AAB', response: 'ab', userInput: '', time: null },
+        { id: 3, question: 'AAC', response: 'ac', userInput: '', time: null },
+        { id: 4, question: 'AAD', response: 'ad', userInput: '', time: null }
       ]
-
-      router.push({ name: 'test', params: { startDate, test } })
+      console.log('Date : ' + startDate + '  : ' + testObject)
+      this.$router.replace({ name: 'Test', params: { startDate, testObject } })
     }
   }
 }

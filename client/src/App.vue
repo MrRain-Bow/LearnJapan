@@ -32,6 +32,7 @@ import { mapMutations } from 'vuex'
 export default {
   data: function () {
     return {
+      app: '',
       drawer: {
         model: true,
         clipped: true

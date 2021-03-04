@@ -24,7 +24,8 @@ const routes = [
   {
     path: '/test',
     name: 'Test',
-    component: Test
+    component: Test,
+    props: true
   },
   {
     path: '/kana',
