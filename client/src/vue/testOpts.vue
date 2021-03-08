@@ -1,10 +1,10 @@
 /* eslint-disable quotes */
 <template>
-    <v-container fluid>
-        <h1>Test Options</h1>
-        Some options to performe a Test<br>
-        <v-btn block class="mt-5" color="primary" @click="startTest()">Start</v-btn>
-    </v-container>
+  <v-container fluid>
+    <h1>Test Options</h1>
+    Some options to performe a Test<br>
+    <v-btn block class="mt-5" color="primary" @click="startTest()">Start</v-btn>
+  </v-container>
 </template>
 
 <script>

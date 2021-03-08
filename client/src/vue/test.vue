@@ -1,18 +1,24 @@
 <template>
-    <div>
-        <h1>Test en cours... {{index+1}}/{{testObject.length}}</h1>
-        {{testObject[index].question}}<br/>
-        <v-text-field
-            dense
-            class="mt-0 mb-1"
-            label="Response"
-            type="text"
-            outlined
-            v-model="userInput"
-        ></v-text-field>
-        <v-btn @click="next">Valider</v-btn><br>
-        {{testObject}}
-    </div>
+  <v-container fluid class="text-center">
+    <h1 class="mb-6">Question n°{{index+1}}/{{testObject.length}}</h1>
+    <v-card
+      class="pa-7 mb-6 primary secondary--text rounded-circle d-inline-block"
+      width="100px"
+      height="100px"
+    >
+      <h1>{{curQ.question}}</h1>
+    </v-card>
+    <v-text-field
+        dense
+        class="mt-0 mb-1"
+        label="Response"
+        type="text"
+        outlined
+        v-model="userInput"
+    ></v-text-field>
+    <v-btn @click="next" color="sucess">Valider</v-btn><br>
+    {{testObject}}
+  </v-container>
 </template>
 
 <script>
@@ -25,18 +31,22 @@ export default {
   data: () => {
     return {
       index: 0,
-      userInput: ''
+      userInput: '',
+      curQ: null
     }
   },
 
   methods: {
     next () {
+      let inputDate = Date.now()
       // Ajout de la reponse de l'utilisateur
       this.testObject[this.index].userInput = this.userInput
+      this.testObject[this.index].time = inputDate - this.startDate
       this.userInput = ''
 
       // Passage à la question suivante
       this.index++
+      this.curQ = this.testObject[this.index]
 
       // Detection de fin de partie (à chaque validation)
       if (this.index >= this.testObject.length) {
@@ -50,7 +60,15 @@ export default {
     console.log('Test Obj ' + this.testObject)
     if (this.startDate == null || this.testObject == null) {
       this.$router.replace({ path: '/testsopts' })
+    } else {
+      this.curQ = this.testObject[this.index]
     }
   }
 }
 </script>
+
+<style scoped>
+.rounded-card{
+    border-radius:100px;
+}
+</style>
