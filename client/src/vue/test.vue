@@ -50,7 +50,7 @@ export default {
 
       // Detection de fin de partie (à chaque validation)
       if (this.index >= this.testObject.length) {
-        this.$router.replace('/')
+        this.$router.replace({ name: 'TestResult', params: { testTps: Date.now() - this.startDate.getTime(), testObject: this.testObject } })
       }
     }
   },
@@ -67,8 +67,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.rounded-card{
-    border-radius:100px;
-}
-</style>

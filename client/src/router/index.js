@@ -4,9 +4,12 @@ import VueRouter from 'vue-router'
 import Accueil from '@/vue/Accueil.vue'
 
 import TestsOptions from '@/vue/testOpts.vue'
+import Test from '@/vue/test.vue'
+import TestResult from '@/vue/testResult.vue'
+
 import kana from '@/vue/kana.vue'
 
-import Test from '@/vue/test.vue'
+
 
 Vue.use(VueRouter)
 
@@ -18,13 +21,19 @@ const routes = [
   },
   {
     path: '/testsopts',
-    name: 'Options Tests',
+    name: 'OptionsTests',
     component: TestsOptions
   },
   {
     path: '/test',
     name: 'Test',
     component: Test,
+    props: true
+  },
+  {
+    path: '/testResult',
+    name: 'TestResult',
+    component: TestResult,
     props: true
   },
   {
