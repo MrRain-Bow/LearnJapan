@@ -9,15 +9,20 @@
       <h1>{{curQ.question}}</h1>
     </v-card>
     <v-text-field
-        dense
         class="mt-0 mb-1"
-        label="Response"
+        label="Reponse ?"
         type="text"
         outlined
         v-model="userInput"
+        @keydown.enter="next"
     ></v-text-field>
     <v-btn @click="next" color="sucess">Valider</v-btn><br>
-    {{testObject}}
+    <div v-if="sucess">
+      You did it ! Yeah
+    </div>
+    <div v-else>
+      Oh no it's wrong dude...
+    </div>
   </v-container>
 </template>
 
@@ -25,7 +30,8 @@
 export default {
   props: {
     testObject: { type: Object, default: null },
-    startDate: { type: Date, default: null }
+    startDate: { type: Date, default: null },
+    respSuccess: null
   },
 
   data: () => {
@@ -61,9 +67,25 @@ export default {
     if (this.startDate == null || this.testObject == null) {
       this.$router.replace({ path: '/testsopts' })
     } else {
-      this.curQ = this.testObject[this.index]
+      // Randomiser Test Object
+      let randomiseTest = []
+      let lgth = this.testObject.length;
+      for (let i = 0; i < lgth; i++)
+      {
+        let rngIndex = Math.floor(Math.random() * Math.floor(this.testObject.length))
+        randomiseTest.push(this.testObject[rngIndex])
+        this.testObject.splice(rngIndex, 1)
+      }
+
+      this.testObject = randomiseTest
+
+      if(this.testObject.length < 5)
+      {
+        this.$router.replace({ path: '/testsopts' })
+      }else{
+        this.curQ = this.testObject[this.index]
+      }
     }
   }
 }
 </script>
-

@@ -47,10 +47,6 @@ export default {
 
   methode: {},
 
-  computed: {
-    ...mapState(['windowHeight', 'windowWidth'])
-  },
-
   component: {
     hiragana,
     katakana,
